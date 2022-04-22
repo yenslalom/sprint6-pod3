@@ -16,6 +16,6 @@ phases:
       - ls
 artifacts:
   files:
-    - target/my-app-1.0-SNAPSHOT.jar
+    - target/api-0.0.1-SNAPSHOT.war
     - appspec.yml
   discard-paths: yes
