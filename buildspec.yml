@@ -12,6 +12,8 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
+      - pwd
+      - ls
 artifacts:
   files:
     - target/my-app-1.0-SNAPSHOT.jar
