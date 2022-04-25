@@ -2,4 +2,4 @@ version: 0.0
 os: linux
 files:
   - source: api-0.0.1-SNAPSHOT.war
-    destination: /tmp
+    destination: /usr/local/tomcat9/webapps/app.war
