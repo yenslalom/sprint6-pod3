@@ -3,3 +3,7 @@ os: linux
 files:
   - source: api-0.0.1-SNAPSHOT.war
     destination: /usr/local/tomcat9/webapps
+hooks:
+  BeforeInstall:
+    - commands:
+      - rm /usr/local/tomcat9/webapps/api-0.0.1-SNAPSHOT.war || true
