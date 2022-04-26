@@ -1,6 +1,6 @@
 version: 0.0
 os: linux 
-files: 
+files:
   - source: api-0.0.1-SNAPSHOT.war
     destination: /usr/local/tomcat9/webapps
 file_exists_behavior: OVERWRITE
