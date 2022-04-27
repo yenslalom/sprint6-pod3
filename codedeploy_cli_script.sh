@@ -8,15 +8,15 @@ deploymentId=`aws deploy create-deployment \
 --s3-location bucket=aws-blog-lillian-codedeploybucket-1v1dpd4fzmjwg,key=codebuild-artifact.zip,bundleType=zip \
 --region us-east-2 | grep 'deploymentId' | cut -f2 -d ":" | tr -d '"' | tr -d " "`
 echo Monitoring deployment with ID: $deploymentId
-DSTATUS=`aws deploy get-deployment --deployment-id $deploymentId --query 'deploymentInfo.status'`
-DOVERVIEW=`aws deploy get-deployment --deployment-id $deploymentId --query 'deploymentInfo.deploymentOverview' | tr -d "\n" | tr -s " "`
+DSTATUS=`aws deploy get-deployment --deployment-id $deploymentId --query 'deploymentInfo.status' --region us-east-2`
+DOVERVIEW=`aws deploy get-deployment --deployment-id $deploymentId --query 'deploymentInfo.deploymentOverview' --region us-east-2 | tr -d "\n" | tr -s " "`
 echo "Deployment status: $DSTATUS; instances: $DOVERVIEW"
 while [ $DSTATUS != "\"Succeeded\"" ]
 do 
-    CHECK_DOVERVIEW=`aws deploy get-deployment --deployment-id $deploymentId --query 'deploymentInfo.deploymentOverview' | tr -d "\n" | tr -s " "`
+    CHECK_DOVERVIEW=`aws deploy get-deployment --deployment-id $deploymentId --query 'deploymentInfo.deploymentOverview' --region us-east-2 | tr -d "\n" | tr -s " "`
     if [ "$DOVERVIEW" != "$CHECK_DOVERVIEW" ]
         then
-            DSTATUS=`aws deploy get-deployment --deployment-id $deploymentId --query 'deploymentInfo.status'`
+            DSTATUS=`aws deploy get-deployment --deployment-id $deploymentId --query 'deploymentInfo.status' --region us-east-2`
             DOVERVIEW=$CHECK_DOVERVIEW
             echo "Deployment status: $DSTATUS; instances: $DOVERVIEW"
         fi
