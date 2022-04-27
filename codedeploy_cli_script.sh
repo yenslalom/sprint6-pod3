@@ -1,3 +1,4 @@
+#!/bin/bash +x
 echo "Creating deployment with revision at {RevisionType: S3,S3Location: {Bucket: aws-blog-lillian-codedeploybucket-1v1dpd4fzmjwg,Key: codebuild-artifact.zip,BundleType: zip},}"
 
 deploymentId=`aws deploy create-deployment \
