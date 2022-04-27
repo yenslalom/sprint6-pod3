@@ -19,3 +19,4 @@ artifacts:
     - target/api-0.0.1-SNAPSHOT.war
     - appspec.yml
   discard-paths: yes
+  
